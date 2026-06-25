@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Study Tracker</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial;
+  background:#121212;
+  color:white;
+  padding:20px;
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+}
+
+h1{
+  margin-bottom:20px;
+  text-align:center;
+}
+
+form{
+  display:flex;
+  gap:10px;
+  margin-bottom:25px;
+  flex-wrap:wrap;
+}
+
+input{
+  flex:1;
+  min-width:220px;
+  padding:12px;
+  border:none;
+  border-radius:10px;
+}
+
+button{
+  padding:12px 18px;
+  border:none;
+  border-radius:10px;
+  background:#2962ff;
+  color:white;
+  cursor:pointer;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
+}
+
+.book{
+  background:#1e1e1e;
+  padding:18px;
+  border-radius:14px;
+  transition:0.2s;
+}
+
+.book:hover{
+  transform:translateY(-3px);
+}
+
+.book a{
+  color:white;
+  text-decoration:none;
+  font-size:20px;
+  font-weight:bold;
+}
+
+.small{
+  margin-top:10px;
+  color:#aaa;
+  font-size:14px;
+}
+
+.empty{
+  background:#1e1e1e;
+  padding:20px;
+  border-radius:14px;
+  text-align:center;
+  color:#aaa;
+}
+
+@media(max-width:600px){
+  body{
+    padding:12px;
+  }
+
+  form{
+    flex-direction:column;
+  }
+
+  button{
+    width:100%;
+  }
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>📚 Study Tracker</h1>
+
+<form action="/add-book" method="POST">
+  <input type="text" name="name" placeholder="Enter Book Name" required>
+  <button>Add Book</button>
+</form>
+
+<% if(books.length === 0){ %>
+
+<div class="empty">
+  No books added yet.
+</div>
+
+<% } else { %>
+
+<div class="grid">
+
+<% books.forEach(book => { %>
+
+<div class="book">
+  <a href="/book/<%= book._id %>"><%= book.name %></a>
+  <div class="small">Open dashboard</div>
+</div>
+
+<% }) %>
+
+</div>
+
+<% } %>
+
+</div>
+
+</body>
+</html>
