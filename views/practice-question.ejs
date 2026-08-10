@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>MCQ Practice</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #121212;
+      color: white;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 750px;
+      margin: auto;
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .category {
+      color: #00d9ff;
+    }
+
+    .question-box {
+      background: #1e1e1e;
+      padding: 25px;
+      border-radius: 15px;
+    }
+
+    .number {
+      color: #aaa;
+      margin-bottom: 15px;
+    }
+
+    .question {
+      font-size: 21px;
+      line-height: 1.5;
+      margin-bottom: 25px;
+    }
+
+    .option {
+      display: block;
+      background: #2a2a2a;
+      padding: 15px;
+      margin-bottom: 12px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .option:hover {
+      background: #333;
+    }
+
+    .option input {
+      margin-right: 10px;
+    }
+
+    .submit {
+      width: 100%;
+      padding: 13px;
+      margin-top: 10px;
+      background: #2962ff;
+      border: none;
+      color: white;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .submit:hover {
+      background: #1e4ed8;
+    }
+
+    @media(max-width:600px) {
+
+      body {
+        padding: 12px;
+      }
+
+      .question-box {
+        padding: 18px;
+      }
+
+      .question {
+        font-size: 18px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="top">
+
+    <span class="category">
+      <%= category %>
+    </span>
+
+    <span>
+      <%= current %> / <%= total %>
+    </span>
+
+  </div>
+
+
+  <div class="question-box">
+
+    <p class="number">
+      Question <%= current %>
+    </p>
+
+    <div class="question">
+      <%= question.question %>
+    </div>
+
+
+    <form action="/mcq/answer" method="POST">
+
+
+      <label class="option">
+
+        <input
+          type="radio"
+          name="answer"
+          value="A"
+          required
+        >
+
+        A. <%= question.options.A %>
+
+      </label>
+
+
+      <label class="option">
+
+        <input
+          type="radio"
+          name="answer"
+          value="B"
+        >
+
+        B. <%= question.options.B %>
+
+      </label>
+
+
+      <label class="option">
+
+        <input
+          type="radio"
+          name="answer"
+          value="C"
+        >
+
+        C. <%= question.options.C %>
+
+      </label>
+
+
+      <label class="option">
+
+        <input
+          type="radio"
+          name="answer"
+          value="D"
+        >
+
+        D. <%= question.options.D %>
+
+      </label>
+
+
+      <button
+        type="submit"
+        class="submit"
+      >
+        Submit Answer
+      </button>
+
+
+    </form>
+
+  </div>
+
+</div>
+
+</body>
+
+</html>

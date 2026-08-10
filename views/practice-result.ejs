@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>Practice Result</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #121212;
+      color: white;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .box {
+      background: #1e1e1e;
+      padding: 30px;
+      border-radius: 15px;
+    }
+
+    .percentage {
+      font-size: 50px;
+      font-weight: bold;
+      color: #00c853;
+      margin: 20px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 10px;
+      margin-top: 25px;
+    }
+
+    .stat {
+      background: #2a2a2a;
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    .home {
+      display: block;
+      background: #2962ff;
+      color: white;
+      text-decoration: none;
+      padding: 13px;
+      border-radius: 8px;
+      margin-top: 25px;
+    }
+
+    @media(max-width:600px) {
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="box">
+
+    <h1>🎯 Practice Complete</h1>
+
+    <p style="margin-top:10px;">
+      <%= category %>
+    </p>
+
+
+    <div class="percentage">
+      <%= percentage %>%
+    </div>
+
+
+    <div class="stats">
+
+      <div class="stat">
+        <h3><%= total %></h3>
+        <p>Total</p>
+      </div>
+
+      <div class="stat">
+        <h3><%= correct %></h3>
+        <p>Correct</p>
+      </div>
+
+      <div class="stat">
+        <h3><%= wrong %></h3>
+        <p>Wrong</p>
+      </div>
+
+    </div>
+
+
+    <a
+      href="/mcq"
+      class="home"
+    >
+      Back to MCQ
+    </a>
+
+  </div>
+
+</div>
+
+</body>
+
+</html>
