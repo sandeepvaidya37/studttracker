@@ -26,21 +26,6 @@ mongoose.connect(process.env.MONGO_URI)
 .catch(err => console.log(err));
 
 
-const url = `https://studytracker-5762.onrender.com/`;
-const interval = 30000;
-
-function reloadWebsite() {
-    axios
-        .get(url)
-        .then((response) => {
-            console.log("Website reloaded successfully:", response.status);
-        })
-        .catch((error) => {
-            console.error(`Error: ${error.message}`);
-        });
-}
-
-setInterval(reloadWebsite, interval);
 
 
 // HOME
