@@ -230,7 +230,7 @@ app.get("/mcq/practice", async (req, res) => {
       return res.redirect("/mcq");
     }
 
-    // Get 10 random questions
+    // Get 100 random questions
     const questions = await Question.aggregate([
       {
         $match: {
@@ -239,7 +239,7 @@ app.get("/mcq/practice", async (req, res) => {
       },
       {
         $sample: {
-          size: 10
+          size: 100
         }
       }
     ]);
