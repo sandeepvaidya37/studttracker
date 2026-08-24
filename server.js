@@ -56,7 +56,7 @@ app.get("/book/:id", async (req, res) => {
     solvedQ += t.solvedQuestions;
   });
 
-  let progress = totalQ === 0 ? 0 : ((solvedQ / totalQ) * 100).toFixed(1);
+  let progress = totalQ === 0 ? 0 : ((solvedQ / totalQ) * 200).toFixed(1);
 
   let bestTopic = null;
   let weakTopic = null;
