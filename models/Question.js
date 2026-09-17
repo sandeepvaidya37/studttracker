@@ -37,13 +37,17 @@ const questionSchema = new mongoose.Schema({
     D: {
       type: String,
       required: true
+    },
+    E: {
+      type: String,
+      required: true
     }
   },
 
   correctAnswer: {
     type: String,
     required: true,
-    enum: ["A", "B", "C", "D"]
+    enum: ["A", "B", "C", "D", "E"]
   },
 
   explanation: {
